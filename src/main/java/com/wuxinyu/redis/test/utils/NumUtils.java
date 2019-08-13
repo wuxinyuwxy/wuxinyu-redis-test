@@ -1,7 +1,11 @@
 package com.wuxinyu.redis.test.utils;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import com.wuxinyu.common.utils.RandomUtil;
-import com.wuxinyu.common.utils.StringUtil;
 
 /**
  * 
@@ -58,5 +62,15 @@ public class NumUtils {
 		return email;
 		
 	}
-
+	
+	public static String date() {
+		Calendar c = Calendar.getInstance();
+		int age = RandomUtil.random(18, 70);
+		System.out.println(age);
+		c.set(Calendar.YEAR, c.get(Calendar.YEAR)-age);
+		Date birthday = c.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return sdf.format(birthday);
+	}
+	
 }
